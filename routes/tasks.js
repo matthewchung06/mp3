@@ -205,7 +205,7 @@ module.exports = function (router) {
                 await User.updateOne({ _id: task.assignedUser }, { $pull: { pendingTasks: task._id.toString() } });
             }
 
-            res.status(200).json({ message: 'Task deleted', data: task });
+            res.status(204).send();
         } catch (err) {
             res.status(500).json({ message: 'Could not delete the task', data: [] });
         }

@@ -205,7 +205,7 @@ module.exports = function (router) {
 
             await Task.updateMany({ assignedUser: user._id.toString() }, { assignedUser: '', assignedUserName: 'unassigned' });
 
-            res.status(200).json({ message: 'User deleted', data: user });
+            res.status(204).send();
         } catch (err) {
             res.status(500).json({ message: 'Could not delete the user', data: [] });
         }
